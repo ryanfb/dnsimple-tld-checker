@@ -14,6 +14,8 @@ Standard output will be e.g.:
 
 ```
 domain  registration    renewal
+my.name $14.00  $14.00
+myname.ac       $70.00  $70.00
 myname.academy  $35.00  $35.00
 myname.accountant       $144.00 $144.00
 myname.accountants      $105.00 $105.00
