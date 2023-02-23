@@ -29,6 +29,7 @@ ARGF.each_line do |tsv_line|
         sleep reset_in
         retry
       end
+    rescue URI::InvalidURIError => e
     end
   else
     puts tsv_line
