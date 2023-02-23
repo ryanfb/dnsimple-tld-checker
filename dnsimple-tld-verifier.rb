@@ -11,7 +11,7 @@ dnsimple = Dnsimple::Client.new(
 ACCOUNT_ID = ENV['DNSIMPLE_ACCOUNT_ID']
 
 ARGF.each_line do |tsv_line|
-  domain = tsv_line.split("\t")[0]
+  domain = tsv_line.split("\t")[0].chomp("\n")
   if domain.include?('.')
     domain = domain.split('.')[-2..].join('.')
     begin
