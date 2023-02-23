@@ -25,4 +25,4 @@ myname.aero     $80.00  $80.00
 
 The output is tab-separated and suitable for piping to a .tsv file.
 
-The script uses a simple WHOIS check and heuristic for quickly checking availability. No available libraries I found were suitable for the variety of TLDs supported by DNSimple, and the DNSimple checkDomain API endpoint has a very restrictive rate limit. By default, the script rejects country-level TLDs since many of these have residency requirements, but feel free to modify the script if you don't want that. 
+The script uses a simple WHOIS check and heuristic for quickly checking availability. No available libraries I found were suitable for the variety of TLDs supported by DNSimple, and the DNSimple checkDomain API endpoint has a very restrictive rate limit.

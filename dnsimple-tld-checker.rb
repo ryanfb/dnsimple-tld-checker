@@ -15,7 +15,7 @@ dnsimple = Dnsimple::Client.new(
 ACCOUNT_ID = ENV['DNSIMPLE_ACCOUNT_ID']
 
 dnsimple_tlds = dnsimple.tlds.all_tlds
-tld_suffixes = dnsimple_tlds.data.reject{|t| t.tld_type == 2}.map{|t| t.tld}.reject{|t| t.include?('.')}
+tld_suffixes = dnsimple_tlds.data.map{|t| t.tld}.reject{|t| t.include?('.')}
 
 puts "domain\tregistration\trenewal"
 ARGV.each do |domain_base|
