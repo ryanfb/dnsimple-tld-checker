@@ -26,3 +26,11 @@ myname.aero     $80.00  $80.00
 The output is tab-separated and suitable for piping to a .tsv file.
 
 The script uses a simple WHOIS check and heuristic for quickly checking availability. No available libraries I found were suitable for the variety of TLDs supported by DNSimple, and the DNSimple checkDomain API endpoint has a very restrictive rate limit.
+
+Because of this, a second script is provided which can take a list of full domains and verify their availability via the DNSimple API. An example use case is that you can use `dnsimple-tld-checker.rb` to brainstorm a list of possible domains, then filter down the list to ones you want to check are really available for registration via the DNSimple API with `dnsimple-tld-verifier.rb`. The `dnsimple-tld-verifier.rb` script will only output lines where the first entry is a verified available domain.
+
+Example usage:
+
+    bundle exec ./dnsimple-tld-checker.rb myname > myname.tsv
+    vim myname.tsv; echo 'only keeping domains I like'
+    bundle exec ./dnsimple-tld-verifier.rb myname.tsv > myname-verified.tsv
