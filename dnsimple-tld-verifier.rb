@@ -13,6 +13,7 @@ ACCOUNT_ID = ENV['DNSIMPLE_ACCOUNT_ID']
 ARGF.each_line do |tsv_line|
   domain = tsv_line.split("\t")[0]
   if domain.include?('.')
+    domain = domain.split('.')[-2..].join('.')
     begin
       dnsimple_response = dnsimple.registrar.check_domain(ACCOUNT_ID, domain)
       domain_available = dnsimple_response.data.available
