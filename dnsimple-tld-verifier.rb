@@ -21,8 +21,8 @@ ARGF.each_line do |tsv_line|
         puts tsv_line
       end
     rescue Dnsimple::RequestError => e
-      if e.message.include?('is not supported')
-        warn "Error checking #{domain_to_check}: #{e.inspect}"
+      if e.message.start_with?('TLD') && e.message.include?('not supported')
+        warn "Error checking #{domain}: #{e.inspect}"
       else
         reset_at = e.http_response.headers['x-ratelimit-reset'].to_i
         reset_in = reset_at - Time.now.to_i
